@@ -39,6 +39,10 @@ $routes->post('/gurulogin', 'Home::loginguru', ['as'=>'login_guru_post']);
 $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("dashboard", "AdminDashboard::index", ['as'=>'admindashboard']);
     $routes->get("logout", "AdminDashboard::logout", ['as'=>'logout']);
+
+    $routes->get("kelas", "AdminKelas::index", ['as'=>'adminkelas']);
+    $routes->post("kelas/store", "AdminKelas::store", ['as'=>'storekelas']);
+    $routes->get("kelas/delete/(:segment)", "AdminKelas::delete/$1", ['as'=>'deletekelas']);
 });
 /*
  * --------------------------------------------------------------------

@@ -22,7 +22,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="<?= route_to('dashboard')?>" class="nav-link <?= uri_string() == 'admin/dashboard' ? 'active':'' ?>">
+                <a href="<?= route_to('admindashboard')?>" class="nav-link <?= uri_string() == 'admin/dashboard' ? 'active':'' ?>">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -31,7 +31,7 @@
             </li>
             <li class="nav-header">General Setting</li>
             <li class="nav-item">
-                <a href="<?= route_to('menu_kelas')?> " class="nav-link <?= uri_string() == 'admin/kelas' ? 'active':'' ?>">
+                <a href="<?= route_to('adminkelas')?> " class="nav-link <?= uri_string() == 'admin/kelas' ? 'active':'' ?> <?= uri_string() == 'admin/kelas/store' ? 'active':'' ?>">
                     <i class="nav-icon fas fa-home"></i>
                     <p>
                         Kelas
