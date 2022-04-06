@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= route_to('adminguru') ?>" class="nav-link <?= uri_string() == 'admin/guru' ? 'active':'' ?> <?= uri_string() == 'admin/guru/form' ? 'active':'' ?> <?= uri_string() == 'admin/guru_add/post' ? 'active':'' ?>">
+                <a href="<?= route_to('adminguru') ?>" class="nav-link <?= uri_string() == 'admin/guru' ? 'active':'' ?> <?= uri_string() == 'admin/guru/form' ? 'active':'' ?> <?= uri_string() == 'admin/guru/form/store' ? 'active':'' ?>">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
                         Guru

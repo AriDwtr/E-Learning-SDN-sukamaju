@@ -30,7 +30,7 @@
     <?php endif; ?>
 </section>
 <div class="col-md-12">
-    <a href="<?= route_to('form_guru')?>" class="btn btn-success mb-2"><i class="fas fa-user"></i> Tambah Guru Baru</a>
+    <a href="<?= route_to('formguru')?>" class="btn btn-success mb-2"><i class="fas fa-user"></i> Tambah Guru Baru</a>
     <div class="card card-info">
         <div class="card-header">
             <h3 class="card-title">Data Guru</h3>
@@ -53,13 +53,19 @@
                     <?php $nomor = 1;
                     foreach ($staff as $staff) : ?>
                     <tr>
-                        <td><?= $nomor ?></td>
-                        <td><?= $staff['nip'] ?></td>
-                        <td><?= $staff['nama_pegawai'] ?></td>
-                        <td><?= $staff['tipe'] ?></td>
-                        <td><?= $staff['jenis_kelamin'] ?></td>
+                        <td><?= $nomor ++ ?></td>
+                        <td><b><?= $staff['nip'] ?><b></td>
+                        <td><?= ucwords($staff['nama_pegawai']) ?></td>
+                        <td><?= strtoupper($staff['tipe']) ?></td>
+                        <td><?= ucwords($staff['jenis_kelamin']) ?></td>
                         <td><center><?= $staff['foto']== NULL ? '<img src="'.base_url().'/foto/default.png" alt="User Image" width="20" height="20">' : '' ?></center></td>
-                        <td>-</td>
+                        <td>
+                            <a href="<?= route_to('passguru', $staff['id_staff']) ?>" style="color:gray"><i class="fas fa-key"></i> Ganti Password</a>
+                                &nbsp;&nbsp;
+                            <a href="<?= route_to('editguru', $staff['id_staff']) ?>" style="color:orange"><i class="fas fa-edit"></i> Edit</a>
+                                &nbsp;&nbsp;
+                            <a href="<?= route_to('deleteguru', $staff['id_staff']) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

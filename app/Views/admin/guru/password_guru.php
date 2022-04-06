@@ -40,47 +40,19 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="<?= route_to('storeguru') ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= route_to('updatepass', $staff['id_staff']) ?>" method="post" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="nip">NIP</label>
-                                <input type="number" name="nip" class="form-control" id="nip" placeholder="Masukan NIP">
+                                <label for="NewPassword">New Password</label>
+                                <input type="password" name="password" class="form-control" id="NewPassword" placeholder="Masukan Password" required>
                             </div>
                             <div class="form-group">
-                                <label for="nama">Nama Pegawai</label>
-                                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Pegawai" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="jeniskelamin">Jenis Kelamin</label>
-                                <select class="custom-select" id="jeniskelamin" name="jk">
-                                    <option value="laki-laki">Laki Laki</option>
-                                    <option value="perempuan">Perempuan</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <label>Login Account</label>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="username">Username</label>
-                                        <input type="text" name="username" class="form-control" id="username" placeholder="username" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="password">Password</label>
-                                        <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="tipe">Tipe</label>
-                                <select class="custom-select" id="tipe" name="tipe">
-                                    <option value="admin">Admin</option>
-                                    <option value="guru">Guru</option>
-                                </select>
+                                <label for="RetypePassword">Re-type Password</label>
+                                <input type="password" name="repassword" class="form-control" id="RetypePassword" placeholder="Tulis Ulang Password" required>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success">Buat Akun Baru</button>
+                            <button type="submit" class="btn btn-success">Perbarui Password Akun</button>
                         </div>
                     </form>
                 </div>

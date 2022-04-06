@@ -45,7 +45,7 @@ class AdminKelas extends BaseController
                 'validation' => $this->validator,
                 'kelas' => $kelas->orderBy('id_kelas', 'DESC')->findAll()
             ];
-            echo view('admin/kelas/menu_kelas', $data);
+            return view('admin/kelas/menu_kelas', $data);
         }
     }
 

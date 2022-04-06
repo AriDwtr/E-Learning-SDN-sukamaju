@@ -40,7 +40,8 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("dashboard", "AdminDashboard::index", ['as'=>'admindashboard']);
 
     $routes->get("logout", "AdminDashboard::logout", ['as'=>'logout']);
-
+    
+    // kelas
     $routes->get("kelas", "AdminKelas::index", ['as'=>'adminkelas']);
     $routes->post("kelas/store", "AdminKelas::store", ['as'=>'storekelas']);
 
@@ -48,10 +49,23 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->post("kelas/update/(:any)", "AdminKelas::update/$1", ['as'=>'updatekelas']);
     
     $routes->get("kelas/delete/(:any)", "AdminKelas::delete/$1", ['as'=>'deletekelas']);
+    // end kelas
 
+    // guru
     $routes->get("guru", "AdminGuru::index", ['as'=>'adminguru']);
     
-    $routes->get("guru/form", "AdminGuru::form", ['as'=>'form_guru']);
+    $routes->get("guru/form", "AdminGuru::form", ['as'=>'formguru']);
+    $routes->post("guru/form/store", "AdminGuru::store", ['as'=>'storeguru']);
+
+    $routes->get("guru/edit/(:any)", "AdminGuru::edit/$1", ['as'=>'editguru']);
+    $routes->add("guru/update/(:any)", "AdminGuru::update/$1", ['as'=>'updateguru']);
+
+    $routes->get("guru/password/(:any)", "AdminGuru::editpassword/$1", ['as'=>'passguru']);
+    $routes->add("guru/password/update/(:any)", "AdminGuru::updatepassword/$1", ['as'=>'updatepass']);
+
+    $routes->get("guru/delete/(:any)", "AdminGuru::delete/$1", ['as'=>'deleteguru']);
+
+    // end guru
 });
 /*
  * --------------------------------------------------------------------
