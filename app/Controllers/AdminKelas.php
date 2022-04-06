@@ -49,6 +49,48 @@ class AdminKelas extends BaseController
         }
     }
 
+    public function edit($id)
+    {
+        $session = session();
+        $kelas = new KelasModel();
+        $data = [
+            'id_staff' => $session->get('id_staff'),
+            'nip' => $session->get('nip'),
+            'nama_pegawai' => $session->get('nama_pegawai'),
+            'tipe' => $session->get('tipe'),
+            'kelas' => $kelas->find($id),
+        ];
+        return view('admin/kelas/edit_kelas', $data);
+    }
+
+    public function update($id)
+    {
+        $session = session();
+        helper(['form']);
+        $kelas = new KelasModel();
+        $rules = [
+            'kelas'         => 'required',
+        ];
+        if($this->validate($rules)){
+            $data = [
+                'kelas' => $this->request->getVar('kelas'),
+            ];
+        $kelas->update($id, $data);
+        $session->setFlashdata('msg', 'Berhasil Perbarui Kelas');
+        return redirect()->route('adminkelas');
+        }else{
+            $data = [
+                'id_staff' => $session->get('id_staff'),
+                'nip' => $session->get('nip'),
+                'nama_pegawai' => $session->get('nama_pegawai'),
+                'tipe' => $session->get('tipe'),
+                'validation' => $this->validator,
+                'kelas' => $kelas->find($id),
+            ];
+            echo view('admin/kelas/edit_kelas', $data);
+        }
+    }
+
     public function delete($id)
     {
         $session = session();

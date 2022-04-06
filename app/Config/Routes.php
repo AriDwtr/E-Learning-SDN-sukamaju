@@ -38,11 +38,20 @@ $routes->post('/gurulogin', 'Home::loginguru', ['as'=>'login_guru_post']);
 
 $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("dashboard", "AdminDashboard::index", ['as'=>'admindashboard']);
+
     $routes->get("logout", "AdminDashboard::logout", ['as'=>'logout']);
 
     $routes->get("kelas", "AdminKelas::index", ['as'=>'adminkelas']);
     $routes->post("kelas/store", "AdminKelas::store", ['as'=>'storekelas']);
-    $routes->get("kelas/delete/(:segment)", "AdminKelas::delete/$1", ['as'=>'deletekelas']);
+
+    $routes->get("kelas/edit/(:any)", "AdminKelas::edit/$1", ['as'=>'editkelas']);
+    $routes->post("kelas/update/(:any)", "AdminKelas::update/$1", ['as'=>'updatekelas']);
+    
+    $routes->get("kelas/delete/(:any)", "AdminKelas::delete/$1", ['as'=>'deletekelas']);
+
+    $routes->get("guru", "AdminGuru::index", ['as'=>'adminguru']);
+    
+    $routes->get("guru/form", "AdminGuru::form", ['as'=>'form_guru']);
 });
 /*
  * --------------------------------------------------------------------

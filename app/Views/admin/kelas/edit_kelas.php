@@ -16,7 +16,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= route_to('admindashboard') ?>">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Kelas</li>
+                    <li class="breadcrumb-item active">kelas</li>
                 </ol>
             </div>
         </div>
@@ -39,19 +39,19 @@
     <?php endif; ?>
     <div class="card card-info">
         <div class="card-header">
-            <h3 class="card-title">Form Tambah Kelas</h3>
+            <h3 class="card-title">Form Edit Kelas</h3>
         </div>
-        <form class="form-horizontal" method="POST" action="<?= route_to('storekelas') ?>" enctype="multipart/form-data">
+        <form class="form-horizontal" method="POST" action="<?= route_to('updatekelas', $kelas['id_kelas']) ?>" enctype="multipart/form-data">
             <div class="card-body">
                 <div class="form-group row">
                     <label for="inputKelas1" class="col-sm-2 col-form-label">Nama Kelas</label>
                     <div class="col-sm-10">
-                        <input type="text" name="kelas" class="form-control" id="inputKelas1" placeholder="kelas 1 a">
+                        <input type="text" name="kelas" value="<?= $kelas['kelas'] ?>" class="form-control" id="inputKelas1" placeholder="kelas 1 a">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-info"><b>+ Tambah Kelas</b></button>
+                        <button type="submit" class="btn btn-info"><b>+ Ubah Kelas</b></button>
                     </div>
                 </div>
             </div>
@@ -59,42 +59,6 @@
         </form>
     </div>
 </section>
-<div class="col-md-6">
-    <div class="card card-info">
-        <div class="card-header">
-            <h3 class="card-title">Data Kelas</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Kelas</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $nomor = 1;
-                    foreach ($kelas as $kelas) :
-                    ?>
-                        <tr>
-                            <td><?= $nomor++ ?></td>
-                            <td><b><?= $kelas['kelas'] ?></b></td>
-                            <td>
-                                <a href="<?= route_to('editkelas', $kelas['id_kelas']) ?>" style="color:orange"><i class="fas fa-edit"></i> Edit</a>
-                                &nbsp;&nbsp;
-                                <a href="<?= route_to('deletekelas', $kelas['id_kelas']) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        <!-- /.card-body -->
-    </div>
-</div>
 <?= $this->endsection() ?>
 
 <?= $this->section('customjs') ?>
