@@ -64,8 +64,15 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->add("guru/password/update/(:any)", "AdminGuru::updatepassword/$1", ['as'=>'updatepass']);
 
     $routes->get("guru/delete/(:any)", "AdminGuru::delete/$1", ['as'=>'deleteguru']);
-
     // end guru
+
+    //siswa
+    $routes->get("siswa", "AdminSiswa::index", ['as'=>'adminsiswa']);
+
+    $routes->get("siswa/form", "AdminSiswa::form", ['as'=>'formsiswa']);
+    $routes->post("siswa/form/store", "AdminSiswa::store", ['as'=>'storesiswa']);
+
+    $routes->get("siswa/delete/(:any)", "AdminSiswa::delete/$1", ['as'=>'deletesiswa']);
 });
 /*
  * --------------------------------------------------------------------

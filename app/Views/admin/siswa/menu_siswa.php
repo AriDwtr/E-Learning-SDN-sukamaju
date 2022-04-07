@@ -11,12 +11,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Menu Kelas</h1>
+                <h1>Menu Siswa</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= route_to('admindashboard') ?>">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Kelas</li>
+                    <li class="breadcrumb-item active">Ssiswa</li>
                 </ol>
             </div>
         </div>
@@ -28,66 +28,45 @@
             <?= session()->getFlashdata('msg') ?>
         </div>
     <?php endif; ?>
-    <?php
-
-    use CodeIgniter\Router\Router;
-
-    if (isset($validation)) : ?>
-        <div class="alert alert-danger">
-            <?= $validation->listErrors() ?>
-        </div>
-    <?php endif; ?>
-    <div class="card card-info">
-        <div class="card-header">
-            <h3 class="card-title">Form Tambah Kelas</h3>
-        </div>
-        <form class="form-horizontal" method="POST" action="<?= route_to('storekelas') ?>" enctype="multipart/form-data">
-            <div class="card-body">
-                <div class="form-group row">
-                    <label for="inputKelas1" class="col-sm-2 col-form-label">Nama Kelas</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="kelas" class="form-control" id="inputKelas1" placeholder="kelas 1 a">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-info"><b>+ Tambah Kelas</b></button>
-                    </div>
-                </div>
-            </div>
-            <!-- /.card-body -->
-        </form>
-    </div>
 </section>
-<div class="col-md-6">
+<div class="col-md-12">
+    <a href="<?= route_to('formsiswa')?>" class="btn btn-success mb-2"><i class="fas fa-user"></i> Tambah Siswa Baru</a>
     <div class="card card-info">
         <div class="card-header">
-            <h3 class="card-title">Data Kelas</h3>
+            <h3 class="card-title">Data Guru</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th width="5%">No</th>
+                        <th>NISN</th>
+                        <th>Nama Siswa</th>
                         <th>Kelas</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Foto</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $nomor = 1;
-                    foreach ($kelas as $kelas) :
-                    ?>
-                        <tr>
-                            <td><?= $nomor++ ?></td>
-                            <td><b><?= strtoupper($kelas['kelas']) ?></b></td>
-                            <td>
-                                <a href="<?= route_to('editkelas', $kelas['id_kelas']) ?>" style="color:orange"><i class="fas fa-edit"></i> Edit</a>
+                    <?php $nomor = 1;
+                    foreach ($siswa as $siswa) : ?>
+                    <tr>
+                        <td><?= $nomor ++ ?></td>
+                        <td><b><?= $siswa['nisn'] ?><b></td>
+                        <td><?= ucwords($siswa['nama_siswa']) ?></td>
+                        <td><?= strtoupper($siswa['id_kelas']) ?></td>
+                        <td><?= ucwords($siswa['jenis_kelamin']) ?></td>
+                        <td><center><?= $siswa['foto']== NULL ? '<img src="'.base_url().'/foto/default.png" alt="User Image" width="20" height="20">' : '' ?></center></td>
+                        <td>
+                            <a href="<?= route_to('passsiswa', $siswa['id_siswa']) ?>" style="color:gray"><i class="fas fa-key"></i> Ganti Password</a>
                                 &nbsp;&nbsp;
-                                <a href="<?= route_to('deletekelas', $kelas['id_kelas']) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
-                            </td>
-                        </tr>
+                            <a href="<?= route_to('editsiswa', $siswa['id_siswa']) ?>" style="color:orange"><i class="fas fa-edit"></i> Edit</a>
+                                &nbsp;&nbsp;
+                            <a href="<?= route_to('deletesiswa', $siswa['id_siswa']) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
+                        </td>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

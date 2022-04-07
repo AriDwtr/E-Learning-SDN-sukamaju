@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= route_to('menu_siswa') ?>" class="nav-link">
+                <a href="<?= route_to('adminsiswa') ?>" class="nav-link <?= uri_string() == 'admin/siswa' ? 'active':'' ?><?= uri_string() == 'admin/siswa/form' ? 'active':'' ?>">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
                        Siswa

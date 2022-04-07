@@ -16,7 +16,7 @@ class AdminKelas extends BaseController
             'nip' => $session->get('nip'),
             'nama_pegawai' => $session->get('nama_pegawai'),
             'tipe' => $session->get('tipe'),
-            'kelas' => $kelas->orderBy('id_kelas', 'DESC')->findAll()
+            'kelas' => $kelas->orderBy('id_kelas', 'ASC')->findAll()
         ];
         return view('admin/kelas/menu_kelas', $data);
     }
