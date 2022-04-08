@@ -81,7 +81,11 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("siswa/delete/(:any)", "AdminSiswa::delete/$1", ['as'=>'deletesiswa']);
     //end siswa
 
+    //pelajaran
+    $routes->get("pelajaran", "AdminPelajaran::index", ['as'=>'adminpelajaran']);
 
+    $routes->get("pelajaran/detail/(:any)", "AdminPelajaran::detail/$1", ['as'=>'admindetailpelajaran']);
+    //end pelajaran
 });
 /*
  * --------------------------------------------------------------------

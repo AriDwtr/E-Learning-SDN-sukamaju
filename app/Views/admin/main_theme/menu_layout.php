@@ -56,7 +56,7 @@
             </li>
             <li class="nav-header">Setting Mata Pelajaran</li>
             <li class="nav-item">
-                <a href="<?= route_to('adminpelajaran')?> " class="nav-link">
+                <a href="<?= route_to('adminpelajaran')?> " class="nav-link <?= uri_string() == 'admin/pelajaran' ? 'active':'' ?>">
                     <i class="nav-icon fas fa-book"></i>
                     <p>
                         Kelas
