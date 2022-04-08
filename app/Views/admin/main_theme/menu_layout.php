@@ -54,6 +54,15 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-header">Setting Mata Pelajaran</li>
+            <li class="nav-item">
+                <a href="<?= route_to('adminpelajaran')?> " class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Kelas
+                    </p>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

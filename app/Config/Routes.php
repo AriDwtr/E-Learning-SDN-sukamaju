@@ -72,7 +72,16 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("siswa/form", "AdminSiswa::form", ['as'=>'formsiswa']);
     $routes->post("siswa/form/store", "AdminSiswa::store", ['as'=>'storesiswa']);
 
+    $routes->get("siswa/edit/(:any)", "AdminSiswa::edit/$1", ['as'=>'editsiswa']);
+    $routes->add("siswa/update/(:any)", "AdminSiswa::update/$1", ['as'=>'updatesiswa']);
+
+    $routes->get("siswa/password/(:any)", "AdminSiswa::editpassword/$1", ['as'=>'passsiswa']);
+    $routes->add("siswa/password/update/(:any)", "AdminSiswa::updatepassword/$1", ['as'=>'updatepasssiswa']);
+
     $routes->get("siswa/delete/(:any)", "AdminSiswa::delete/$1", ['as'=>'deletesiswa']);
+    //end siswa
+
+
 });
 /*
  * --------------------------------------------------------------------

@@ -54,17 +54,17 @@
                     foreach ($siswa as $siswa) : ?>
                     <tr>
                         <td><?= $nomor ++ ?></td>
-                        <td><b><?= $siswa['nisn'] ?><b></td>
-                        <td><?= ucwords($siswa['nama_siswa']) ?></td>
-                        <td><?= strtoupper($siswa['id_kelas']) ?></td>
-                        <td><?= ucwords($siswa['jenis_kelamin']) ?></td>
-                        <td><center><?= $siswa['foto']== NULL ? '<img src="'.base_url().'/foto/default.png" alt="User Image" width="20" height="20">' : '' ?></center></td>
+                        <td><b><?= $siswa->nisn ?><b></td>
+                        <td><?= ucwords($siswa->nama_siswa) ?></td>
+                        <td><?= strtoupper($siswa->kelas) ?></td>
+                        <td><?= ucwords($siswa->jenis_kelamin) ?></td>
+                        <td><center><?= $siswa->foto== NULL ? '<img src="'.base_url().'/foto/default.png" alt="User Image" width="20" height="20">' : '' ?></center></td>
                         <td>
-                            <a href="<?= route_to('passsiswa', $siswa['id_siswa']) ?>" style="color:gray"><i class="fas fa-key"></i> Ganti Password</a>
+                            <a href="<?= route_to('passsiswa', $siswa->id_siswa) ?>" style="color:gray"><i class="fas fa-key"></i> Ganti Password</a>
                                 &nbsp;&nbsp;
-                            <a href="<?= route_to('editsiswa', $siswa['id_siswa']) ?>" style="color:orange"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="<?= route_to('editsiswa', $siswa->id_siswa) ?>" style="color:orange"><i class="fas fa-edit"></i> Edit</a>
                                 &nbsp;&nbsp;
-                            <a href="<?= route_to('deletesiswa', $siswa['id_siswa']) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
+                            <a href="<?= route_to('deletesiswa', $siswa->id_siswa) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
