@@ -24,6 +24,11 @@
 </section>
 
 <section class="content">
+    <?php if (session()->getFlashdata('msg')) : ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata('msg') ?>
+        </div>
+    <?php endif; ?>
     <div class="container-fluid">
         <div class="row">
             <?php foreach ($kelas as $kelas) : ?>

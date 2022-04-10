@@ -58,10 +58,10 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->post("guru/form/store", "AdminGuru::store", ['as'=>'storeguru']);
 
     $routes->get("guru/edit/(:any)", "AdminGuru::edit/$1", ['as'=>'editguru']);
-    $routes->add("guru/update/(:any)", "AdminGuru::update/$1", ['as'=>'updateguru']);
+    $routes->post("guru/update/(:any)", "AdminGuru::update/$1", ['as'=>'updateguru']);
 
     $routes->get("guru/password/(:any)", "AdminGuru::editpassword/$1", ['as'=>'passguru']);
-    $routes->add("guru/password/update/(:any)", "AdminGuru::updatepassword/$1", ['as'=>'updatepass']);
+    $routes->post("guru/password/update/(:any)", "AdminGuru::updatepassword/$1", ['as'=>'updatepass']);
 
     $routes->get("guru/delete/(:any)", "AdminGuru::delete/$1", ['as'=>'deleteguru']);
     // end guru
@@ -73,10 +73,10 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->post("siswa/form/store", "AdminSiswa::store", ['as'=>'storesiswa']);
 
     $routes->get("siswa/edit/(:any)", "AdminSiswa::edit/$1", ['as'=>'editsiswa']);
-    $routes->add("siswa/update/(:any)", "AdminSiswa::update/$1", ['as'=>'updatesiswa']);
+    $routes->post("siswa/update/(:any)", "AdminSiswa::update/$1", ['as'=>'updatesiswa']);
 
     $routes->get("siswa/password/(:any)", "AdminSiswa::editpassword/$1", ['as'=>'passsiswa']);
-    $routes->add("siswa/password/update/(:any)", "AdminSiswa::updatepassword/$1", ['as'=>'updatepasssiswa']);
+    $routes->post("siswa/password/update/(:any)", "AdminSiswa::updatepassword/$1", ['as'=>'updatepasssiswa']);
 
     $routes->get("siswa/delete/(:any)", "AdminSiswa::delete/$1", ['as'=>'deletesiswa']);
     //end siswa
@@ -85,6 +85,13 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("pelajaran", "AdminPelajaran::index", ['as'=>'adminpelajaran']);
 
     $routes->get("pelajaran/detail/(:any)", "AdminPelajaran::detail/$1", ['as'=>'admindetailpelajaran']);
+
+    $routes->post("pelajaran/store", "AdminPelajaran::store", ['as'=>'storepelajaran']);
+
+    $routes->get("pelajaran/edit/(:any)", "AdminPelajaran::edit/$1", ['as'=>'editpelajaran']);
+    $routes->post("pelajaran/update/(:any)", "AdminPelajaran::update/$1", ['as'=>'updatepelajaran']);
+
+    $routes->get("pelajaran/delete/(:any)", "AdminPelajaran::delete/$1", ['as'=>'deletepelajaran']);
     //end pelajaran
 });
 /*
