@@ -94,6 +94,12 @@ $routes->group("admin", ["filter" => "auth"], function($routes){
     $routes->get("pelajaran/delete/(:any)", "AdminPelajaran::delete/$1", ['as'=>'deletepelajaran']);
     //end pelajaran
 });
+
+$routes->group("guru", ["filter" => "auth"], function($routes){
+    $routes->get("dashboard", "GuruDashboard::index", ['as'=>'gurudashboard']);
+
+    $routes->get("logout", "GuruDashboard::logout", ['as'=>'gurulogout']);
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

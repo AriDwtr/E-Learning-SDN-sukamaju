@@ -38,7 +38,7 @@ class Home extends BaseController
                     return redirect()->route('admindashboard');
                 }else{
                     $session->set($session_data);
-                    return redirect()->to('/guru/dashboad');
+                    return redirect()->route('gurudashboard');
                 }
             }else{
                 $session->setFlashdata('msg', 'Password Salah Tolong Cek Ulang');
