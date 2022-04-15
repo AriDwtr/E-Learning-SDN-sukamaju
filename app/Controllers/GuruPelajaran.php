@@ -30,6 +30,7 @@ class GuruPelajaran extends BaseController
         $builder2->where('jadwalpelajaran.id_pelajaran', $id);
         $builder2->join('tbl_pelajaran as pelajaran', 'jadwalpelajaran.id_pelajaran = pelajaran.id_pelajaran');
         $builder2->join('tbl_kelas as kelas', 'pelajaran.id_kelas = kelas.id_kelas');
+        $builder->orderBy('jadwalpelajaran.tanggal_jadwal', 'ASC');
         $jadwalpelajaran = $builder2->get()->getResult();
         $data = [
             'id_staff' => $session->get('id_staff'),
@@ -58,8 +59,17 @@ class GuruPelajaran extends BaseController
                 'tanggal_jadwal' => $this->request->getPost('tanggal'),
             ];
         $jadwalpelajaran->insert($data);
-        $session->setFlashdata('msg', 'Berhasil Menambahkan Kelas Baru');
+        $session->setFlashdata('msg', 'Berhasil Menambahkan Jadwal Baru');
         return redirect()->route('gurudashboard');
         }
+    }
+
+    public function delete($id)
+    {
+        $session = session();
+        $jadwalpelajaran = new JadwalPengajaranModel();
+        $jadwalpelajaran->delete($id);
+        $session->setFlashdata('msg', 'Berhasil MenghapusJadwal Kelas');
+        return redirect()->route('gurudashboard');
     }
 }

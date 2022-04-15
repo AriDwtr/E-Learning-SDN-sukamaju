@@ -97,9 +97,9 @@
                         <th width="5%">No</th>
                         <th>Judul Pertemuan</th>
                         <th>Mata Pelajaran</th>
-                        <th>Tipe</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Foto</th>
+                        <th>Kelas</th>
+                        <th>Tanggal Pertemuan</th>
+                        <th>Link Zoom</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -110,8 +110,10 @@
                         <td><?= $nomor ++ ?></td>
                         <td><b><?= ucwords($jadwalpelajaran->judul_materi) ?><b></td>
                         <td><b><?= strtoupper($jadwalpelajaran->pelajaran) ?><b></td>
-                        <td><?= ucwords($jadwalpelajaran->kelas) ?></td>
+                        <td><i><?= ucwords($jadwalpelajaran->kelas) ?></i></td>
                         <td><?= date("d-m-Y", strtotime($jadwalpelajaran->tanggal_jadwal)) ?></td>
+                        <td><i><?= $jadwalpelajaran->link_zoom ?></i></td>
+                        <td><a href="<?= route_to('deletejadwalpelajaran', $jadwalpelajaran->id_jadwal) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
