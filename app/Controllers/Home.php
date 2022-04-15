@@ -45,7 +45,7 @@ class Home extends BaseController
                 return redirect()->route('login_guru');
             }
         }else{
-            $session->setFlashdata('msg', 'Ooops Email Tidak Terdaftar');
+            $session->setFlashdata('msg', 'Ooops Username Tidak Terdaftar');
             return redirect()->route('login_guru');
         }
     }
