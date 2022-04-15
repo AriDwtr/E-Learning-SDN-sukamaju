@@ -20,7 +20,11 @@
 
     <!-- Main content -->
     <section class="content">
-
+    <?php if (session()->getFlashdata('msg')) : ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata('msg') ?>
+        </div>
+    <?php endif; ?>
       <!-- Default box -->
       <div class="card card-info">
         <div class="card-header">
@@ -45,7 +49,7 @@
                             <span class="info-box-text"><b><?= strtoupper($pelajaran->pelajaran) ?></b></span>
                             <span class="info-box-text"><b><?= strtoupper($pelajaran->kelas) ?></b></span>
                             <span class="info-box-number">
-                                <a href="<?= route_to('admindetailpelajaran') ?>" class="small-box-footer">
+                                <a href="<?= route_to('gurudetailpelajaran', $pelajaran->id_pelajaran) ?>" class="small-box-footer">
                                     Jadwal <i class="fas fa-arrow-circle-right"></i>
                                 </a><br>
                             </span>

@@ -99,6 +99,9 @@ $routes->group("guru", ["filter" => "auth"], function($routes){
     $routes->get("dashboard", "GuruDashboard::index", ['as'=>'gurudashboard']);
 
     $routes->get("logout", "GuruDashboard::logout", ['as'=>'gurulogout']);
+
+    $routes->get("detailpelajaran/(:any)", "GuruPelajaran::index/$1", ['as'=>'gurudetailpelajaran']);
+    $routes->post("pelajaran/store", "GuruPelajaran::store", ['as'=>'gurupelajaranstore']);
 });
 /*
  * --------------------------------------------------------------------
