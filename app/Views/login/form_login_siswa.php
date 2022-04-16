@@ -86,7 +86,7 @@
               <h4 class="mb-2">Selamat Datang! 👋</h4>
               <p class="mb-4">Masukan Username dan Password Untuk Mengakses Halaman E-Learning Student</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="<?= route_to('login_siswa_post') ?>" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label">Username</label>
                   <input

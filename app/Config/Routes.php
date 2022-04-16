@@ -32,6 +32,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::formloginsiswa', ['as'=>'login_siswa']);
+$routes->post('/siswalogin', 'Home::loginsiswa', ['as'=>'login_siswa_post']);
 
 $routes->get('/guru', 'Home::formloginguru', ['as'=>'login_guru']);
 $routes->post('/gurulogin', 'Home::loginguru', ['as'=>'login_guru_post']);
@@ -104,6 +105,10 @@ $routes->group("guru", ["filter" => "auth"], function($routes){
     $routes->post("pelajaran/store", "GuruPelajaran::store", ['as'=>'gurupelajaranstore']);
 
     $routes->get("pelajaran/delete/(:any)", "GuruPelajaran::delete/$1", ['as'=>'deletejadwalpelajaran']);
+});
+
+$routes->group("siswa", ["filter" => "auth"], function($routes){
+    $routes->get("dashboard", "SiswaDashboard::index", ['as'=>'siswadashboard']);
 });
 /*
  * --------------------------------------------------------------------
