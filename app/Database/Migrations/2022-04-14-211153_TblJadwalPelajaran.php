@@ -24,6 +24,10 @@ class TblJadwalPelajaran extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
             ],
+            'ringkas_materi'       => [
+                'type'           => 'TEXT',
+                'null'=> true
+            ],
             'link_zoom'       => [
                 'type'           => 'TEXT',
                 'null'=> true

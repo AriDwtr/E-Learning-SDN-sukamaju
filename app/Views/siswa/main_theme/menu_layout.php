@@ -5,14 +5,16 @@
 </a>
 
 <!-- Sidebar -->
+<?php foreach($listkelas as $listkelas) : ?>
 <div class="sidebar">
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="<?= base_url() ?>/dashboard/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="<?= base_url() ?>/foto/default.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block"><?= strtoupper($nama_pegawai) ?></a>
+            <a href="#" class="d-block"><b><?= strtoupper($nama_siswa) ?></b></a>
+            <a href="#" class="d-block"><?= strtoupper($listkelas->kelas) ?></a>
         </div>
     </div>
 
@@ -22,15 +24,27 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="<?= route_to('gurudashboard')?>" class="nav-link <?= uri_string() == 'guru/dashboard' ? 'active':'' ?>">
-                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <a href="<?= route_to('siswadashboard')?>" class="nav-link <?= uri_string() == 'siswa/dashboard' ? 'active':'' ?>">
+                    <i class="nav-icon fas fa-book-open"></i>
                     <p>
-                        MatPel
+                        Pelajaran Hari ini
                     </p>
                 </a>
             </li>
+            <li class="nav-header">Daftar Pelajaran</li>
+            <?php foreach($listmatpel as $listmatpel) : ?>
+                <li class="nav-item">
+                    <a href="<?= route_to('siswadashboard')?>" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            <?= strtoupper($listmatpel['pelajaran']) ?>
+                        </p>
+                    </a>
+                </li>
+            <?php endforeach ?>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
 </div>
+<?php endforeach ?>
 <!-- /.sidebar -->

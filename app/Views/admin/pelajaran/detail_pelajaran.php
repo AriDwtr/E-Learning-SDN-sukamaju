@@ -53,7 +53,9 @@
                     <div class="col-sm-10">
                         <select class="form-control select2" name="staff" style="width: 100%;">
                             <?php foreach ($staff as $staff) : ?>
-                                <option value="<?= $staff['id_staff'] ?>"><?= strtoupper($staff['nama_pegawai'].'-'.$staff['nip']) ?></option>
+                                <?php if($staff['tipe']=="guru") {?>
+                                    <option value="<?= $staff['id_staff'] ?>"><?= strtoupper($staff['nama_pegawai'].'-'.$staff['nip']) ?></option>
+                                <?php } ?>
                             <?php endforeach ?>
                         </select>
                     </div>
