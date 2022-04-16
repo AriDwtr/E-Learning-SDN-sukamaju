@@ -8,7 +8,7 @@
 <ul class="navbar-nav ml-auto">
     <!-- Messages Dropdown Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= route_to('gurulogout')?>">
+        <a class="nav-link" href="<?= route_to('siswalogout')?>">
             <i class="fas fa-door-open"></i>
         </a>
     </li>

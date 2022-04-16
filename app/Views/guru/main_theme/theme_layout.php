@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="<?= base_url() ?>/dashboard/plugins/fontawesome-free/css/all.min.css">
 
   <?= $this->renderSection('css')?>
-
+   <!-- summernote -->
+   <link rel="stylesheet" href="<?= base_url() ?>/dashboard/plugins/summernote/summernote-bs4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() ?>/dashboard/dist/css/adminlte.min.css">
 </head>
@@ -54,11 +55,34 @@
 <!-- Bootstrap 4 -->
 <script src="<?= base_url() ?>/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<!-- Summernote -->
+<script src="<?= base_url() ?>/dashboard/plugins/summernote/summernote-bs4.min.js"></script>
+
+<script src="<?= base_url() ?>/dashboard/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
 <?= $this->renderSection('customjs')?>
 
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>/dashboard/dist/js/adminlte.min.js"></script>
 <script type="text/javascript">
+  $(function () {
+  bsCustomFileInput.init();
+});
+
+ $(function () {
+    // Summernote
+    $('#summernote').summernote({
+      height: 150,
+      placeholder: 'type with apple, orange, watermelon and lemon',
+    })
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+
 $(document).ready(function () {
 window.setTimeout(function() {
     $(".alert").fadeTo(1000, 0).slideUp(1000, function(){

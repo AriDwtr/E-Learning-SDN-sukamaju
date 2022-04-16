@@ -52,13 +52,18 @@ class GuruPelajaran extends BaseController
             'judul'         => 'required',
         ];
         if($this->validate($rules)){
+            $dataBerkas = $this->request->getFile('filemateri');
+		    $fileName = $dataBerkas->getRandomName();
             $data = [
                 'id_pelajaran' => $this->request->getPost('idpelajaran'),
                 'judul_materi' => $this->request->getVar('judul'),
+                'ringkas_materi' => $this->request->getVar('kilas'),
                 'link_zoom' => $this->request->getPost('zoom'),
                 'tanggal_jadwal' => $this->request->getPost('tanggal'),
+                'file_upload' => $fileName
             ];
         $jadwalpelajaran->insert($data);
+        $dataBerkas->move('./upload', $fileName);
         $session->setFlashdata('msg', 'Berhasil Menambahkan Jadwal Baru');
         return redirect()->route('gurudashboard');
         }

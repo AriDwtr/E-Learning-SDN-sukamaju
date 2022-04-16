@@ -34,7 +34,7 @@
             <li class="nav-header">Daftar Pelajaran</li>
             <?php foreach($listmatpel as $listmatpel) : ?>
                 <li class="nav-item">
-                    <a href="<?= route_to('siswadashboard')?>" class="nav-link">
+                    <a href="<?= route_to('matpel', $listmatpel['id_pelajaran'])?>" class="nav-link <?= uri_string() == 'siswa/matapelajaran/'.$listmatpel['id_pelajaran'] ? 'active':'' ?>">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             <?= strtoupper($listmatpel['pelajaran']) ?>

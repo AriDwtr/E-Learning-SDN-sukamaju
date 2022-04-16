@@ -50,6 +50,11 @@
                         <input type="text" class="form-control" name="judul" id="exampleInputmateri" placeholder="Pertemuan 1" required>
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputmateri">Ringkasan Materi</label>
+                        <textarea id="summernote" name="kilas" rows="8">
+                        </textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputzoom">Link Zoom</label>
                         <input type="text" class="form-control" name="zoom" id="exampleInputzoom" placeholder="https://us05web.zoom.us/j/89083952521?pwd=SkFLSjJjaDdZUkdsVTRaSzBwVVJtQT09">
                     </div>
@@ -63,9 +68,6 @@
                             <div class="custom-file">
                                 <input type="file" name="filemateri" class="custom-file-input" id="exampleInputFile">
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
                             </div>
                         </div>
                     </div>
@@ -91,32 +93,32 @@
                 </div>
             </div>
             <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th width="5%">No</th>
-                        <th>Judul Pertemuan</th>
-                        <th>Mata Pelajaran</th>
-                        <th>Kelas</th>
-                        <th>Tanggal Pertemuan</th>
-                        <th>Link Zoom</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $nomor = 1;
-                    foreach ($jadwalpelajaran as $jadwalpelajaran) : ?>
-                    <tr>
-                        <td><?= $nomor ++ ?></td>
-                        <td><b><?= ucwords($jadwalpelajaran->judul_materi) ?><b></td>
-                        <td><b><?= strtoupper($jadwalpelajaran->pelajaran) ?><b></td>
-                        <td><i><?= ucwords($jadwalpelajaran->kelas) ?></i></td>
-                        <td><?= date("d-m-Y", strtotime($jadwalpelajaran->tanggal_jadwal)) ?></td>
-                        <td><i><?= $jadwalpelajaran->link_zoom ?></i></td>
-                        <td><a href="<?= route_to('deletejadwalpelajaran', $jadwalpelajaran->id_jadwal) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="5%">No</th>
+                            <th>Judul Pertemuan</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Kelas</th>
+                            <th>Tanggal Pertemuan</th>
+                            <th>Link Zoom</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $nomor = 1;
+                        foreach ($jadwalpelajaran as $jadwalpelajaran) : ?>
+                            <tr>
+                                <td><?= $nomor++ ?></td>
+                                <td><b><?= ucwords($jadwalpelajaran->judul_materi) ?><b></td>
+                                <td><b><?= strtoupper($jadwalpelajaran->pelajaran) ?><b></td>
+                                <td><i><?= ucwords($jadwalpelajaran->kelas) ?></i></td>
+                                <td><?= date("d-m-Y", strtotime($jadwalpelajaran->tanggal_jadwal)) ?></td>
+                                <td><i><?= $jadwalpelajaran->link_zoom ?></i></td>
+                                <td><a href="<?= route_to('deletejadwalpelajaran', $jadwalpelajaran->id_jadwal) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
                 </table>
             </div>
             <!-- /.card-body -->

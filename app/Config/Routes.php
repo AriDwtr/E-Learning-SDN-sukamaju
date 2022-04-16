@@ -109,6 +109,15 @@ $routes->group("guru", ["filter" => "auth"], function($routes){
 
 $routes->group("siswa", ["filter" => "auth"], function($routes){
     $routes->get("dashboard", "SiswaDashboard::index", ['as'=>'siswadashboard']);
+
+    $routes->get("logout", "SiswaDashboard::logout", ['as'=>'siswalogout']);
+
+    $routes->get("download/berkas/(:any)", "SiswaDashboard::download/$1", ['as'=>'downloadberkas']);
+
+    $routes->get("matapelajaran/(:any)", "SiswaDashboard::matpel/$1", ['as'=>'matpel']);
+
+    $routes->get("absensisiswa/(:any)", "SiswaDashboard::absensi/$1", ['as'=>'absensisiswa']);
+
 });
 /*
  * --------------------------------------------------------------------
