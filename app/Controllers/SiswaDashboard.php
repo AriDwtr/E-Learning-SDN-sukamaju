@@ -98,6 +98,7 @@ class SiswaDashboard extends BaseController
         $absensi->insert($data);
         $session->setFlashdata('msg', 'Berhasil Melakukan Absensi');
         return redirect()->route('siswadashboard');
+        
     }
 
     public function logout()

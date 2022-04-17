@@ -104,6 +104,8 @@ $routes->group("guru", ["filter" => "auth"], function($routes){
     $routes->get("detailpelajaran/(:any)", "GuruPelajaran::index/$1", ['as'=>'gurudetailpelajaran']);
     $routes->post("pelajaran/store", "GuruPelajaran::store", ['as'=>'gurupelajaranstore']);
 
+    $routes->get("datasiswaabsensi/(:any)", "GuruPelajaran::absensi/$1", ['as'=>'daftarabsensisiswa']);
+
     $routes->get("pelajaran/delete/(:any)", "GuruPelajaran::delete/$1", ['as'=>'deletejadwalpelajaran']);
 });
 

@@ -100,7 +100,7 @@ function tgl_indo($tanggal)
                   <p><u><b>Materi Pembelajaran</b></u></p>
                     <div style="text-align: justify;"><?= $jadwal->ringkas_materi ?></div>
                   </p>
-                  <p><b>Link Zoom : </b> <?= $jadwal->link_zoom ?></p>
+                  <p><b>Link Zoom : </b><a href="<?= $jadwal->link_zoom ?>" target="_blank">LINK ZOOM / MEET</a></p>
                   <p><b>Materi : </b> <a href="<?= $jadwal->file_upload == NULL ? '#': route_to('downloadberkas', $jadwal->file_upload) ?>">Materi <?= $jadwal->judul_materi ?> Download</a></p>
                   <br>
                   <a href="<?= route_to('absensisiswa', $jadwal->id_jadwal) ?>" class="btn btn-primary"><i class="fas fa-hand-paper"></i> Absensi Sekarang</a>

@@ -28,7 +28,7 @@
                   <p><u><b>Materi Pembelajaran</b></u></p>
                     <div style="text-align: justify;"><?= $matpel->ringkas_materi ?></div>
                   </p>
-                  <p><b>Link Zoom : </b> <?= $matpel->link_zoom ?></p>
+                  <p><b>Link Zoom : </b><a href="<?= $jadwal->link_zoom ?>" target="_blank">LINK ZOOM / MEET</a></p>
                   <p><b>Materi : </b> <a href="<?= $matpel->file_upload == NULL ? '#': route_to('downloadberkas', $matpel->file_upload) ?>">Materi <?= $matpel->judul_materi ?> Download</a></p>
                 </div>
               </div>
