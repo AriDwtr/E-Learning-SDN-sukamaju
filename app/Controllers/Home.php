@@ -64,7 +64,7 @@ class Home extends BaseController
             if ($verify_password) {
                 $session_data = [
                     'id_siswa' => $data['id_siswa'],
-                    'nisn' => $data['nip'],
+                    'nisn' => $data['nisn'],
                     'nama_siswa' => $data['nama_siswa'],
                     'id_kelas' => $data['id_kelas'],
                     'logged_in' => TRUE
