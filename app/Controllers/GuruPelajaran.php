@@ -93,6 +93,29 @@ class GuruPelajaran extends BaseController
 
     }
 
+    public function absensiall($id)
+    {
+        $session = session();
+
+        $builder = $this->db->table("tbl_pelajaran as pelajaran");
+        $builder->select('*');
+        $builder->where('pelajaran.id_pelajaran', $id);
+        $builder->join('tbl_jadwal_pelajaran as jadwal', 'pelajaran.id_pelajaran = jadwal.id_pelajaran');
+        $builder->join('tbl_absensi as absensi', 'jadwal.id_jadwal = absensi.id_jadwal');
+        $builder->join('tbl_siswa as siswa', 'absensi.id_siswa = siswa.id_siswa');
+        $builder->join('tbl_kelas as kelas', 'pelajaran.id_kelas = kelas.id_kelas');
+        $absensi = $builder->get()->getResult();
+
+        $data = [
+            'id_staff' => $session->get('id_staff'),
+            'nip' => $session->get('nip'),
+            'nama_pegawai' => $session->get('nama_pegawai'),
+            'tipe' => $session->get('tipe'),
+            'absensi' => $absensi,
+        ];
+        return view('guru/pelajaran/data_absensi.php', $data);
+    }
+
     public function delete($id)
     {
         $session = session();

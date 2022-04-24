@@ -105,8 +105,24 @@ $routes->group("guru", ["filter" => "auth"], function($routes){
     $routes->post("pelajaran/store", "GuruPelajaran::store", ['as'=>'gurupelajaranstore']);
 
     $routes->get("datasiswaabsensi/(:any)", "GuruPelajaran::absensi/$1", ['as'=>'daftarabsensisiswa']);
+    $routes->get("datasiswaabsensiall/(:any)", "GuruPelajaran::absensiall/$1", ['as'=>'absensibulanan']);
 
     $routes->get("pelajaran/delete/(:any)", "GuruPelajaran::delete/$1", ['as'=>'deletejadwalpelajaran']);
+
+    //siswa
+    $routes->get("siswa", "GuruSiswa::index", ['as'=>'gurusiswa']);
+
+    $routes->get("siswa/form", "GuruSiswa::form", ['as'=>'formsiswaguru']);
+    $routes->post("siswa/form/store", "GuruSiswa::store", ['as'=>'storesiswaguru']);
+
+    $routes->get("siswa/edit/(:any)", "GuruSiswa::edit/$1", ['as'=>'editsiswaguru']);
+    $routes->post("siswa/update/(:any)", "GuruSiswa::update/$1", ['as'=>'updatesiswaguru']);
+
+    $routes->get("siswa/password/(:any)", "GuruSiswa::editpassword/$1", ['as'=>'passsiswaguru']);
+    $routes->post("siswa/password/update/(:any)", "GuruSiswa::updatepassword/$1", ['as'=>'updatepasssiswaguru']);
+
+    $routes->get("siswa/delete/(:any)", "GuruSiswa::delete/$1", ['as'=>'deletesiswaguru']);
+    //end siswa
 });
 
 $routes->group("siswa", ["filter" => "auth"], function($routes){

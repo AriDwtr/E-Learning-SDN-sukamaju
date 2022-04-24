@@ -118,6 +118,8 @@
                                 <td>
                                 <a href="<?= route_to('daftarabsensisiswa', $jadwalpelajaran->id_jadwal) ?>" style="color:green"><i class="fas fa-address-book"></i> Lihat Absensi</a>
                                 <br>
+                                <a href="<?= route_to('absensibulanan', $jadwalpelajaran->id_pelajaran) ?>" ><i class="fas fa-clipboard"></i> Print Absensi Bulanan</a>
+                                <br>
                                 <a href="<?= route_to('deletejadwalpelajaran', $jadwalpelajaran->id_jadwal) ?>" style="color:red" onclick='return window.confirm("Are you sure you want to delete this?");'><i class="fas fa-trash"></i> Hapus</a>
                                 </td>
                             </tr>

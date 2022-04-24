@@ -29,6 +29,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="<?= route_to('gurusiswa') ?>" class="nav-link <?= uri_string() == 'guru/siswa' ? 'active':'' ?><?= uri_string() == 'guru/siswa/form' ? 'active':'' ?>">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                       Siswa
+                    </p>
+                </a>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
